@@ -1,0 +1,9 @@
+<!--  詳細画面：Title・Body  -->
+
+<p>Title: <%= @book.title %></p>
+<p>Body: <%= @book.body %></p>
+
+<p>
+<%=link_to "Edit", "/books/index/#{@book.id}/edit" %>｜
+<%=link_to "Back", "/books/index" %>
+</p>
