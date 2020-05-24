@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 	delete 'books/index/:id'	=> 'books#destroy', as: 'destroy_booklist'
 
 	#resource :books
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
