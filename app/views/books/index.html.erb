@@ -2,10 +2,7 @@
 <h1>Books</h1>
 
 
-
-
 <table>
-
   <tr>
     <th>Title</th>
     <th>Body</th>
@@ -32,21 +29,19 @@
 
 
 
-
-
-
-
-
 <h1>New book</h1>
 
 
+<% if flash[:alert] %>
+    <ul>
+      <% flash[:alert].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </ul>
+<% end %>
 
+<%= form_for(@book, url:'/create') do |book| %>
 
-
-
-
-<%= form_for(@book, url:'/newbook') do |book| %>
- 
     <p>Title:<br>
     <%= book.text_field :title %>
     </p>
@@ -58,28 +53,4 @@
     <%= book.submit 'Create Book' %>
 
 <% end %>
-
-
-
-<!--
-	<div >
-	<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th> </th>
-  </tr>
-  <tr>
-    <td>aaaa</td>
-    <td>bbbb</td>
-    <td>cccc</td>
-  </tr>
-  <tr>
-    <td>dddd</td>
-    <td>eeee</td>
-    <td>ffff</td>
-  </tr>
-</table>
-</div>
--->
 
