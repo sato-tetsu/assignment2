@@ -1,17 +1,39 @@
 <!--  一覧表示  -->
 <h1>Books</h1>
 
-<h2>Title</h2>
-<% @books.each do |bk| %>
 
-<%= bk.title %>
-<%= bk.body %>
-<%=link_to "Show", "/books/index/#{bk.id}" %>
-<%=link_to "Edit", edit_booklist_path(bk.id) %>
-<%=link_to "Destroy", destroy_booklist_path(bk.id), method: :delete, "data-confirm" => "Are you Sure?" %>
-<br>
 
-<% end %>
+
+<table>
+
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>   </th>
+  </tr>
+
+  <% @books.each do |bk| %>
+    <tr>
+      <td>
+      <%= bk.title %>
+      </td>
+      <td>
+      <%= bk.body %>
+      </td>
+      <td>
+      <%=link_to "Show", "/books/index/#{bk.id}" %>
+      <%=link_to "Edit", edit_booklist_path(bk.id) %>
+      <%=link_to "Destroy", destroy_booklist_path(bk.id), method: :delete, "data-confirm" => "Are you Sure?" %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+
+
+
 
 
 

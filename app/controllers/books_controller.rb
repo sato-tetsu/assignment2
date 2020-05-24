@@ -35,14 +35,14 @@ class BooksController < ApplicationController
 	def update
 		book = Book.find(params[:id])
 		book.update(book_params)
-		XXXXXXXXXX = "Book was successfully updated."
+		#XXXXXXXXXX = "Book was successfully updated."
 		redirect_to booklist_path(book.id)  #indexにリダイレクトする？
 	end
 
 	def destroy
 		book = Book.find(params[:id])
 		book.destroy
-		XXXXXXXXXX = "Book was successfully destroyed."
+		#XXXXXXXXXX = "Book was successfully destroyed."
 		redirect_to "/books/index"
 	end
 
