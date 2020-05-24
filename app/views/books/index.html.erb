@@ -1,5 +1,4 @@
 <!--  一覧表示  -->
-
 <h1>Books</h1>
 
 <h2>Title</h2>
@@ -9,7 +8,7 @@
 <%= bk.body %>
 <%=link_to "Show", "/books/index/#{bk.id}" %>
 <%=link_to "Edit", edit_booklist_path(bk.id) %>
-<%=link_to "Destroy", destroy_booklist_path(bk.id), method: :delete, "data-confirm" => "削除しておk?" %>
+<%=link_to "Destroy", destroy_booklist_path(bk.id), method: :delete, "data-confirm" => "Are you Sure?" %>
 <br>
 
 <% end %>
@@ -17,6 +16,12 @@
 
 
 <h1>New book</h1>
+
+
+
+
+
+
 
 <%= form_for(@book, url:'/newbook') do |book| %>
  
