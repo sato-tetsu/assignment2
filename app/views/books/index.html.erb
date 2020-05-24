@@ -17,10 +17,10 @@
       <td>
       <%= bk.body %>
       </td>
-      <td>
-      <%=link_to "Show", "/books/index/#{bk.id}" %>
-      <%=link_to "Edit", edit_booklist_path(bk.id) %>
-      <%=link_to "Destroy", destroy_booklist_path(bk.id), method: :delete, "data-confirm" => "Are you Sure?" %>
+      <td class="table-width">
+      <%=link_to "Show", book_path(bk.id) %>
+      <%=link_to "Edit", edit_book_path(bk.id) %>
+      <%=link_to "Destroy", book_path(bk.id), method: :delete, "data-confirm" => "Are you Sure?" %>
       </td>
     </tr>
   <% end %>
@@ -29,27 +29,38 @@
 
 
 
-<h1>New book</h1>
+<h2>New book</h2>
 
 
-<% if flash[:alert] %>
-    <ul>
-      <% flash[:alert].each do |message| %>
-        <p><%= message %></p>
-      <% end %>
-    </ul>
+<% if flash[:alert1] %>
+
+  <table class="alert-container">
+      <tr>
+        <th>
+            <p class="alert-header">error</p>
+        </th>
+      </tr>
+      <tr>
+        <td>
+            <ul>
+              <% flash[:alert1].each do |message| %>
+                <li><p class="alert-message"><%= message %></p></li>
+              <% end %>
+            </ul>
+        </td>
+      </tr>
+  </table>
+
 <% end %>
 
-<%= form_for(@book, url:'/create') do |book| %>
+<%= form_for(@book) do |book| %>
 
-    <p>Title:<br>
+    <p class="index-text">Title</p>
     <%= book.text_field :title %>
-    </p>
-
-    <p>Body: <br>
+    <br>
+    <p class="index-text">Body</p>
     <%= book.text_area :body %>
-    </p>
-
+    <br>
     <%= book.submit 'Create Book' %>
 
 <% end %>

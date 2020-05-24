@@ -1,9 +1,12 @@
 <!--  詳細画面：Title・Body  -->
-
-<p>Title: <%= @book.title %></p>
-<p>Body: <%= @book.body %></p>
+<div class="show-container">
+	<div class="show-text">
+		<p>Title: <%= @book.title %></p><br>
+		<p>Body: <%= @book.body %></p>
+	</div>
+</div>
 
 <p>
-<%=link_to "Edit", "/books/index/#{@book.id}/edit" %>｜
-<%=link_to "Back", "/books/index" %>
+<%=link_to "Edit", edit_book_path %>｜
+<%=link_to "Back", books_path %>
 </p>

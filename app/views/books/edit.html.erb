@@ -1,22 +1,47 @@
 <!--  Editing Book  -->
 
 <h1>Editing Book</h1>
-<%= form_for(@book, url:"/books/index/#{@book.id}") do |bk| %>
-    <p>
-    Title: <br>
+
+<% if flash[:alert1] %>
+
+  <table class="alert-container">
+      <tr>
+        <th>
+            <p class="alert-header">error</p>
+        </th>
+      </tr>
+      <tr>
+        <td>
+            <ul>
+              <% flash[:alert1].each do |message| %>
+                <li><p class="alert-message"><%= message %></p></li>
+              <% end %>
+            </ul>
+        </td>
+      </tr>
+  </table>
+
+<% end %>
+
+
+<%= form_for(@book) do |bk| %>
+    <p class="index-text">
+    Title<br>
     <%= bk.text_field :title %>
     </p>
 
-    <p>Body: <br>
+    <p class="index-text">
+    Body<br>
     <%= bk.text_area :body %>
     </p>
 
-
+    <div class="buttn">
     <%= bk.submit 'Update Book' %>
+    </div>
 <% end %>
-<br>
+
 
 <p>
-<%=link_to "Show", "/books/index/#{@book.id}" %>｜
-<%=link_to "Back", "/books/index" %>
+<%=link_to "Show", book_path %>｜
+<%=link_to "Back", books_path %>
 </p>
